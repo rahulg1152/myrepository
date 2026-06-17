@@ -1,0 +1,113 @@
+﻿Docker Cheat Sheet
+
+1. Docker Basics
+- docker version — show Docker client and server versions.
+- docker info — display Docker system-wide information.
+- docker login — authenticate to a Docker registry.
+- docker logout — remove registry authentication.
+- docker help — show Docker command help.
+
+2. Images
+- docker pull <image> — download an image from a registry.
+- docker images — list local Docker images.
+- docker image ls — alias for listing local images.
+- docker image inspect <image> — show image metadata.
+- docker image rm <image> — remove one or more local images.
+- docker image prune — remove unused images.
+- docker pull <repo>:<tag> — pull a specific image tag.
+- docker tag <source> <target> — add a new tag to an image.
+- docker push <image> — upload a tagged image to a registry.
+
+3. Containers
+- docker run <image> — create and start a container from an image.
+- docker run -d <image> — run a container in detached mode.
+- docker run --name <name> <image> — name the container.
+- docker run -p <host>:<container> <image> — map host port to container port.
+- docker run -e KEY=VALUE <image> — set environment variables for a container.
+- docker ps — list running containers.
+- docker ps -a — list all containers, including stopped.
+- docker start <container> — start a stopped container.
+- docker stop <container> — stop a running container gracefully.
+- docker restart <container> — restart a container.
+- docker rm <container> — remove a stopped container.
+- docker rm -f <container> — force remove a container.
+- docker run --rm <image> — auto-remove container when it exits.
+- docker exec -it <container> <command> — run a command inside a running container.
+- docker logs <container> — show container logs.
+- docker logs -f <container> — follow container logs in real time.
+- docker attach <container> — attach local input/output to a running container.
+- docker inspect <container> — show container configuration and state.
+
+4. Build and Dockerfile
+- docker build -t <name>:<tag> <path> — build an image from a Dockerfile.
+- docker build --no-cache -t <name>:<tag> <path> — build without using cache.
+- docker build -f <Dockerfile> -t <name>:<tag> <path> — use a specific Dockerfile.
+- docker history <image> — show image layer history.
+- docker build --build-arg KEY=VALUE -t <name> <path> — pass build arguments.
+
+5. Volumes & Storage
+- docker volume ls — list Docker volumes.
+- docker volume create <name> — create a named volume.
+- docker volume inspect <name> — inspect volume details.
+- docker volume rm <name> — remove a volume.
+- docker run -v <volume>:<container_path> <image> — mount a named volume into a container.
+- docker run -v <host_path>:<container_path> <image> — mount a host directory into a container.
+- docker run --mount type=volume,source=<name>,target=<path> <image> — use the newer mount syntax.
+
+6. Networks
+- docker network ls — list Docker networks.
+- docker network create <name> — create a custom network.
+- docker network inspect <name> — inspect network details.
+- docker network rm <name> — remove a Docker network.
+- docker run --network <name> <image> — connect a container to a network.
+- docker network connect <network> <container> — attach a running container to a network.
+- docker network disconnect <network> <container> — detach a container from a network.
+
+7. Compose (Docker Compose)
+- docker compose up — build and start services from docker-compose.yml.
+- docker compose up -d — start services in detached mode.
+- docker compose down — stop and remove containers, networks, and volumes created by Compose.
+- docker compose ps — list Compose-managed containers.
+- docker compose logs — show logs for compose services.
+- docker compose logs -f — follow logs for compose services.
+- docker compose build — build or rebuild services.
+- docker compose stop — stop services without removing containers.
+- docker compose rm — remove stopped service containers.
+- docker compose exec <service> <command> — run a command in a running service container.
+
+8. Cleanup and Maintenance
+- docker system df — show disk usage of Docker objects.
+- docker system prune — remove unused containers, networks, images, and build cache.
+- docker system prune -a — remove all unused images as well.
+- docker container prune — remove all stopped containers.
+- docker image prune -a — remove all dangling and unused images.
+- docker network prune — remove unused networks.
+- docker volume prune — remove unused volumes.
+
+9. Registry and Authentication
+- docker login <registry> — log in to a private registry.
+- docker logout <registry> — log out from a registry.
+- docker search <term> — search Docker Hub for images.
+- docker pull <repository>:<tag> — download an image from the registry.
+- docker push <repository>:<tag> — upload an image to the registry.
+
+10. Troubleshooting
+- docker stats — display runtime container resource usage.
+- docker events — stream Docker events from the daemon.
+- docker diff <container> — inspect file system changes made by a container.
+- docker commit <container> <new_image> — create a new image from a container’s changes.
+- docker cp <container>:<path> <host_path> — copy files from a container to host.
+- docker cp <host_path> <container>:<path> — copy files from host into a container.
+- docker info | more — paginate Docker info output for easier reading.
+
+11. Common Shortcuts
+- docker run -d --name <name> -p 80:80 <image> — start a web container detached with port mapping.
+- docker build -t myapp:latest . — build an image named myapp from the current directory.
+- docker run --rm -it <image> bash — run an interactive temporary container and remove it after exit.
+- docker compose up --build — rebuild services before starting.
+- docker image prune --filter "until=24h" — remove images unused for more than 24 hours.
+
+Notes:
+- Use `docker ps -a` to see containers that are stopped or exited.
+- Use `docker inspect` for deep object details when troubleshooting.
+- Use `docker compose` with newer Docker releases instead of `docker-compose` when available.
