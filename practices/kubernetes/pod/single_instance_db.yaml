@@ -1,0 +1,10 @@
+apiVersion: database.oracle.com/v1alpha1
+kind: SingleInstanceDatabase
+metadata:
+  name: my-oracle-db
+spec:
+  edition: free
+  adminPassword:
+    secretName: db-admin-secret
+  image:
+    pullFrom: container-registry.oracle.com/database/free:latest
