@@ -1,0 +1,43 @@
+DECLARE
+    v_dept_id NUMBER;
+    v_manager_id NUMBER;
+BEGIN
+    FOR i IN 1..10000 LOOP
+        -- Pick a random department between 1 and 5
+        v_dept_id := TRUNC(DBMS_RANDOM.VALUE(1, 6));
+
+        -- Assign a manager_id. The first 10 employees get no manager (NULL).
+        -- After that, they randomly report to an employee that was created before them.
+        IF i <= 10 THEN
+            v_manager_id := NULL;
+        ELSE
+            v_manager_id := TRUNC(DBMS_RANDOM.VALUE(1, i));
+        END IF;
+
+        INSERT INTO employees (
+            employee_id,
+            first_name,
+            last_name,
+            email,
+            hire_date,
+            salary,
+            department_id,
+            manager_id
+        ) VALUES (
+            i,                                                              -- employee_id
+            'FirstName' || i,                                               -- first_name
+            'LastName' || i,                                                -- last_name
+            'employee' || i || '@company.com',                              -- email
+            TRUNC(SYSDATE) - TRUNC(DBMS_RANDOM.VALUE(1, 3650)),             -- hire_date (random within last 10 years)
+            ROUND(DBMS_RANDOM.VALUE(40000, 150000), 2),                     -- salary (random between 40k and 150k)
+            v_dept_id,                                                      -- department_id
+            v_manager_id                                                    -- manager_id
+        );
+    END LOOP;
+
+    -- Save the data
+    COMMIT;
+
+    DBMS_OUTPUT.PUT_LINE('Successfully inserted 10,000 records.');
+END;
+/

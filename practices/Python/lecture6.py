@@ -37,5 +37,3 @@ def fun_sum(num):
 
 result = fun_sum(15)
 print(result)
-
-
