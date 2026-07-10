@@ -23,3 +23,5 @@ set autotrace on
 explain plan for
 select * from user_objects;
 
+
+
