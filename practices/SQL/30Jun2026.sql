@@ -3,7 +3,6 @@
 select distinct salary from employees order by salary desc;
 
 
-
 #wap to find 2nd highest salary using dense rank function
 select * from (select a.*, dense_rank() over (order by salary desc) as salary_rank from employees a) where salary_rank = 2;
 select * from (select employee_id,salary, dense_rank() over (order by salary desc) as salary_rank from employees) where salary_rank=2;
@@ -161,4 +160,5 @@ close c1;
 end;
 /
 
+select * from users;
 

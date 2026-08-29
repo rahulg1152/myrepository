@@ -20,7 +20,7 @@ print(full_name.lower()) #prints the full name in lowercase
 print(full_name.replace("John", "Jane")) #replaces "John" with "Jane"
 print(full_name.split()) #splits the full name into a list of words
 #String Slicing with Steps
-a= "\rShrajal is bestfriend.\nhe very\t good at coding."
+a= "\rShrajal is bestfriend.\nhe is very\t good at coding."
 print(str(a)) #prints the string as it is with \r and \n and \t
 # import time
 # for i in range(0, 5):

@@ -17,7 +17,7 @@ b.extend(a)
 print (b)
 print (sorted(b))   
 #for loop
-for i in range(92,100):
+for i in range(22,25):
     print(i)    
 #while loop
 i=int(input("Enter a number: "))
@@ -25,12 +25,12 @@ i=int(input("Enter a number: "))
 if not isinstance(i, int):
     print("Invalid input")
 print ("While loop") 
-while i<100:
+while i<25:
     print(i)
     i+=1
 #reverse while loop
 print ("Reverse while loop")
-while i>=92:
+while i>=22:
     print(i)
     i-=1
 #floor and ceil of numbers

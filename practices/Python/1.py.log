@@ -1,0 +1,30 @@
+--- Running 01.py ---
+Error response from daemon: No such container: myfirst-alpine-bash
+
+--- Running 1.py ---
+Error response from daemon: No such container: myfirst-alpine-bash
+
+--- Running 2.py ---
+Error response from daemon: No such container: myfirst-alpine-bash
+
+--- Running 21.py ---
+Error response from daemon: No such container: myfirst-alpine-bash
+
+--- Running 22.py ---
+Error response from daemon: No such container: myfirst-alpine-bash
+
+--- Running 3.py ---
+Error response from daemon: No such container: myfirst-alpine-bash
+
+--- Running 32.py ---
+Error response from daemon: No such container: myfirst-alpine-bash
+
+--- Running 4.py ---
+Error response from daemon: No such container: myfirst-alpine-bash
+
+--- Running 6.py ---
+Error response from daemon: No such container: myfirst-alpine-bash
+
+--- Running 7.py ---
+Error response from daemon: No such container: myfirst-alpine-bash
+

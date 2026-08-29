@@ -1,0 +1,74 @@
+Step 1: Create a brand new, correctly linked Alpine container
+We will give it a distinct name (myfirst-alpine-bash) so you don't have to deal with random hash IDs anymore. Run this from your 	/python folder:
+
+## if we use --rm in below cmd then container would be deleted after task execution
+docker run -d -it --name myfirst-alpine-bash -v "$(pwd)":/app alpine sh
+
+step2: update alpine
+docker exec myfirst-alpine-bash apk update
+
+Step 3: Install Python 3 inside it
+Now, tell your new container to download Python:
+
+
+docker exec myfirst-alpine-bash apk add --no-cache python3
+Step 4: Run your script
+Now that the volume bridge is properly built, Python will find your script immediately:
+
+docker exec myfirst-alpine-bash python3 /app/1.py > 1.py.log
+
+Step 5: to run my all py scripts nd getting their logs in one file with script name
+	for file in *.py; do 
+	  echo "--- Running $file ---"
+	  printf "Shrajal\n25\n07\n22\n" | docker exec -i myfirst-alpine-bash python3 "/app/$file"
+	  echo ""
+	done > 1.py.log 2>&1
+
+step 6: check size and virtual size (size of container + size of used image)
+
+docker ps -a -size
+
+or instead of all step use below command:
+
+for file in *.py; do 
+  echo "--- Running $file ---"
+  printf "Shrajal\n25\n07\n22\n" | docker run --rm -i -v "$(pwd)":/app -w /app python:3.11-alpine python3 "$file"
+  echo ""
+done > 1.py.log 2>&1
+
+docker run python:3.11 python3 script.py
+
+for file in *.py; do 
+  echo "--- Running $file ---"
+  printf "Shrajal\n25\n07\n22\n" | docker run --rm -i -v "$(pwd)":/app -w /app python:3.11 python3 "$file"
+  echo ""
+done > 1.py.log 2>&1
+
+docker run --rm -i -v "$(pwd)":/app -w /app python:3.11 python3 1.py
+docker run --rm -i -v "$(pwd)":/app -w /app alpine sh banner.sh
+_________________________
+
+
+for file in *.py; do 
+  echo "--- Running $file ---"
+  
+  # 1. DB User -> 2. DB Password -> 3. DB Host string -> 4. Script parameters
+  printf "c##scott\nc##scott\nhost.docker.internal:1521/FREE\nShrajal\n25\n" | docker exec -i myfirst-alpine-bash python3 "/app/$file"
+  
+  echo ""
+done > 1.py.log 2>&1
+
+docker exec myfirst-alpine-bash apk add --no-cache py3-pip && docker exec myfirst-alpine-bash pip install oracledb --break-system-packages
+
+import oracledb
+
+# Connect directly using the Windows host gateway
+connection = oracledb.connect(
+    user="c##scott",
+    password="c##scott",
+    dsn="host.docker.internal:1521/FREE" 
+)
+
+cursor = connection.cursor()
+cursor.execute("SELECT banner FROM v$version")
+print(cursor.fetchone()[0])

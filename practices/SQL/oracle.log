@@ -1,0 +1,30 @@
+--- Running 20Jun26.sql ---
+Error: DPY-6005: cannot connect to database (CONNECTION_ID=QDzkJ+7EZpMW/vegLQLBgw==).
+[Errno 111] Connection refused
+
+--- Running 23Jun26.sql ---
+Error: DPY-6005: cannot connect to database (CONNECTION_ID=HBFjP1AC0tG9tGmY+tjzZw==).
+[Errno 111] Connection refused
+
+--- Running 30Jun2026.sql ---
+Error: DPY-6005: cannot connect to database (CONNECTION_ID=Z++ZjKvtTNBeP5ymhUw8QA==).
+[Errno 111] Connection refused
+
+--- Running DBA.sql ---
+Error: DPY-6005: cannot connect to database (CONNECTION_ID=vN4f/50Q7u1uB4vByl8IsQ==).
+[Errno 111] Connection refused
+
+--- Running Jul2026.sql ---
+Error: DPY-6005: cannot connect to database (CONNECTION_ID=90amiP9voLEn6SqiEl1rmQ==).
+[Errno 111] Connection refused
+
+--- Running Untitled-1.sql ---
+Error: DPY-6005: cannot connect to database (CONNECTION_ID=9LrydFh0IjyV6Qo0kqiLhw==).
+[Errno 111] Connection refused
+
+--- Running testscript.sql ---
+Error: DPY-6005: cannot connect to database (CONNECTION_ID=Auv7AjuAs4RI298zWmqZYg==).
+[Errno 111] Connection refused
+
+
+(ADDRESS = (PROTOCOL = TCP)(HOST = S1152)(PORT = 1521))
