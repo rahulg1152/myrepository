@@ -85,3 +85,23 @@ select
 select upper(ename),lower(ename),initcap(ename) from employees where rownum<2;
 
 select (select mgr from employees where mgr is null) from dual;
+
+select 
+CONCAT('Rahul','Shailendra') concat
+,SUBSTR('RahulShailendra',1,5) substr
+,SUBSTR('RahulShailendra',0,5) substr1
+,LENGTH('RahulShailendra') length
+,INSTR('RahulShailendra','hailen',7,2) instr
+,LPAD('Rahul',10,'*') lpad
+,RPAD('Rahul',10,'*') rpad
+,TRIM('  Rahul  ') trim
+,ltrim('  Rahul  ') ltrim
+,Replace ('RahulShailendra','a') trimma
+,replace(ltrim('  Rahul  ','  R') ,' ','*') triplace
+,rtrim('  Rahul  ') rtrim
+,rtrim('  Rahul  ','l  ') rtrim
+,REPLACE('RahulShailendra','Shailendra','Krishu') replace
+from dual;
+
+#wap for palindrom
+select 'Rahul' as word from dual where 'Rahul' = reverse('Rahul');
