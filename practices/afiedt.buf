@@ -1,5 +1,21 @@
-CREATE USER c##hr IDENTIFIED BY c##hr
-DEFAULT TABLESPACE users
-TEMPORARY TABLESPACE temp
-QUOTA UNLIMITED ON users
-/
+declare 
+
+   v_age number := 15; 
+
+begin 
+
+   if v_age < 18 then 
+
+      raise_application_error( 
+
+          -20001, 
+
+          'Age must be 18 or above' 
+
+      ); 
+
+   end if; 
+
+end; 
+
+/ 
